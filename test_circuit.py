@@ -12,6 +12,7 @@ import circuit_sol
 class TestCircuit(unittest.TestCase):
 
     def test_usage(self):
+        print("\ntesting usage")
         result = subprocess.run(["python", "circuit.py"],
                             stdout=subprocess.PIPE)
         usage = result.stdout.decode("UTF-8").strip()
@@ -30,6 +31,7 @@ class TestCircuit(unittest.TestCase):
         self.assertEqual(usage,string)
         
     def test_dvdt(self):
+        print("\ntesting dvdt()")
 
         R = np.random.rand(1)[0]*2e6 - 10e3
         C = np.random.rand(1)[0]*1e-6 + 0.5e-3
@@ -44,6 +46,7 @@ class TestCircuit(unittest.TestCase):
 
 
     def test_euler(self):
+        print("\ntesting euler()")
 
         t = np.linspace(0,1,1000)
         f = np.random.rand(1000)
@@ -67,6 +70,7 @@ class TestCircuit(unittest.TestCase):
         
 
     def test_rms(self):
+        print("\ntesting rms()")
 
         f1 = np.random.rand(1000)
         f2 = np.random.rand(1000)
@@ -79,6 +83,7 @@ class TestCircuit(unittest.TestCase):
                                places=6)
 
     def test_output(self):
+        print("\ntesting output")
 
         result = subprocess.run(["python", "circuit.py",
                                  "99.13e3","1.07e-6",
